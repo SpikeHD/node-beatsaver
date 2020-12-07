@@ -3,20 +3,24 @@ const axios = require('axios')
 
 class MapList extends Base {
   /**
-   * Takes sort param and optional page.
+   * Takes options ovject which can be empty, but is used for sort method and page.
    * 
-   * @param {String} sort 
-   * @param {Number} page
+   * @param {Object} opts
    */
-  constructor(sort, page = 1) {
+  constructor(opts) {
     super()
 
     const valid = ['uploader', 'hot', 'rating', 'latest', 'downloads', 'plays']
 
-    this.sort = sort
-    this.page = page
+    this.sort = opts.sort.toLowerCase() || 'hot'
+    this.page = opts.page || 1
 
-    if (!sort || !valid.includes(sort)) throw new Error('Invalid sort param. You may use the following: ' + valid.join(', '))
+    if (this.sort === 'uploader') {
+      if (!opts.id) throw new Error('Sort param "uploader" used, but no uploader ID was provided (missing "id" key in object.)')
+      else this.sort += '/' + opts.id
+    }
+
+    if (!this.sort || !valid.some(v => this.sort.includes(v))) throw new Error('Invalid sort param. You may use the following: ' + valid.join(', '))
   }
 
   async get() {
