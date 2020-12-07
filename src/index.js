@@ -1,3 +1,5 @@
 module.exports = {
-  getMap: require('./Functions/getMap')
+  getByHash: require('./Functions/getByHash'),
+  getByKey: require('./Functions/getByKey'),
+  getMap: require('./Functions/getMaps')
 }
