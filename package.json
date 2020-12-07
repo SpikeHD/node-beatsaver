@@ -1,7 +1,7 @@
 {
   "name": "beatsaver",
   "version": "1.0.0",
-  "description": "An API wrapper for https://beatsaver.com",
+  "description": "Beatsaver API wrapper",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist"
@@ -10,8 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/SpikeHD/node-beatsaver.git"
   },
+  "keywords":[
+    "beatsaber",
+    "beatsaver",
+    "api",
+    "wrapper"
+  ],
   "author": "SpikeHD",
-  "license": "ISC",
+  "license": "GNU General Public License v3.0",
   "bugs": {
     "url": "https://github.com/SpikeHD/node-beatsaver/issues"
   },
