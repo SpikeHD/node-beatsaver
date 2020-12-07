@@ -5,9 +5,9 @@ A function-based API wrapper for https://beatsaver.com
 
 # Installation
 
-Run `npm install node-beatsaver` and `require` it in your project like so:
+Run `npm install beatsaver` and `require` it in your project like so:
 ```js
-const bs = require('node-beatsaver')
+const bs = require('beatsaver')
 ```
 
 # Usage
