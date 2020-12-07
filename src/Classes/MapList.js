@@ -12,8 +12,9 @@ class MapList extends Base {
 
     const valid = ['uploader', 'hot', 'rating', 'latest', 'downloads', 'plays']
 
-    this.sort = opts.sort.toLowerCase() || 'hot'
+    this.sort = (opts.sort || 'hot').toLowerCase()
     this.page = opts.page || 1
+    this.query = opts.query || null
 
     if (this.sort === 'uploader') {
       if (!opts.id) throw new Error('Sort param "uploader" used, but no uploader ID was provided (missing "id" key in object.)')
@@ -27,6 +28,15 @@ class MapList extends Base {
     const res = await axios.get(this.default_url + '/maps/' + this.sort + '/' + this.page, this.req_opts)
     this.data = res.data
     
+    return this
+  }
+
+  async search() {
+    if (!this.query) throw new Error('Query not provided in constructor. Include it in your options object (eg. { query: "t+pazolite" }).')
+    
+    const res = await axios.get(this.default_url + '/search/text/' + this.page + '/?q=' + this.query, this.req_opts)
+    this.data = res.data
+
     return this
   }
 }
