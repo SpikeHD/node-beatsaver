@@ -1,4 +1,4 @@
-![https://github.com/SpikeHD/node-beatsaver](https://img.shields.io/github/package-json/v/SpikeHD/node-beatsaver) ![https://github.com/SpikeHD/node-beatsaver](https://img.shields.io/david/SpikeHD/node-beatsaver) ![https://www.npmjs.com/package/node-beatsaver](https://img.shields.io/npm/dw/node-beatsaver)
+![https://github.com/SpikeHD/node-beatsaver](https://img.shields.io/github/package-json/v/SpikeHD/node-beatsaver) ![https://github.com/SpikeHD/node-beatsaver](https://img.shields.io/david/SpikeHD/node-beatsaver) ![https://www.npmjs.com/package/node-beatsaver](https://img.shields.io/npm/dw/beatsaver)
 
 # node-beatsaver
 A function-based API wrapper for https://beatsaver.com
