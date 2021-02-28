@@ -1,5 +1,5 @@
 const Base = require('./Base')
-const axios = require('axios')
+const got = require('got')
 
 class Map extends Base {
   constructor() {
@@ -7,14 +7,14 @@ class Map extends Base {
   }
 
   async getByKey(key) {
-    const res = await axios.get(this.default_url + '/maps/detail/' + key, this.req_opts)
+    const res = await this.client.get(this.default_url + '/maps/detail/' + key, this.req_opts)
     this.data = res.data
 
     return this
   }
 
   async getByHash(hash) {
-    const res = await axios.get(this.default_url + '/maps/by-hash/' + hash, this.req_opts)
+    const res = await this.client.get(this.default_url + '/maps/by-hash/' + hash, this.req_opts)
     this.data = res.data
 
     return this
