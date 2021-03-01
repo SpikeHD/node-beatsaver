@@ -3,7 +3,7 @@ const got = require('got')
 
 class MapList extends Base {
   /**
-   * Takes options ovject which can be empty, but is used for sort method and page.
+   * Takes options object which can be empty, but is used for sort method and page.
    * 
    * @param {Object} opts
    */
@@ -24,6 +24,9 @@ class MapList extends Base {
     if (!this.sort || !valid.some(v => this.sort.includes(v))) throw new Error('Invalid sort param. You may use the following: ' + valid.join(', '))
   }
 
+  /**
+   * Grab all related map list data
+   */
   async get() {
     const res = await this.client.get(this.default_url + '/maps/' + this.sort + '/' + this.page, this.req_opts)
     this.data = JSON.parse(res.body)
@@ -31,8 +34,14 @@ class MapList extends Base {
     return this
   }
 
-  async search() {
-    if (!this.query) throw new Error('Query not provided in constructor. Include it in your options object (eg. { query: "t+pazolite" }).')
+  /**
+   * Static function for getting maps
+   * 
+   * @param {String} query 
+   */
+  static async search(query = null) {
+    if (!this.query && query) throw new Error('Query not provided in constructor. Include it in your options object (eg. { query: "t+pazolite" }).')
+    if (!query) query = this.query
     
     const res = await this.client.get(this.default_url + '/search/text/' + this.page + '/?q=' + this.query, this.req_opts)
     this.data = JSON.parse(res.body)
