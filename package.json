@@ -1,7 +1,7 @@
 {
   "name": "beatsaver",
-  "version": "1.0.0",
-  "description": "Beatsaver API wrapper",
+  "version": "1.0.3",
+  "description": "An API wrapper for https://beatsaver.com",
   "main": "index.js",
   "scripts": {
     "build": "babel src -d dist"
@@ -31,6 +31,6 @@
   },
   "dependencies": {
     "@babel/runtime-corejs3": "^7.12.5",
-    "axios": "^0.21.0"
+    "got": "^11.8.2"
   }
 }

@@ -1,5 +1,5 @@
 const Base = require('./Base')
-const axios = require('axios')
+const got = require('got')
 
 class MapList extends Base {
   /**
@@ -25,8 +25,8 @@ class MapList extends Base {
   }
 
   async get() {
-    const res = await axios.get(this.default_url + '/maps/' + this.sort + '/' + this.page, this.req_opts)
-    this.data = res.data
+    const res = await this.client.get(this.default_url + '/maps/' + this.sort + '/' + this.page, this.req_opts)
+    this.data = JSON.parse(res.body)
     
     return this
   }
@@ -34,8 +34,8 @@ class MapList extends Base {
   async search() {
     if (!this.query) throw new Error('Query not provided in constructor. Include it in your options object (eg. { query: "t+pazolite" }).')
     
-    const res = await axios.get(this.default_url + '/search/text/' + this.page + '/?q=' + this.query, this.req_opts)
-    this.data = res.data
+    const res = await this.client.get(this.default_url + '/search/text/' + this.page + '/?q=' + this.query, this.req_opts)
+    this.data = JSON.parse(res.body)
 
     return this
   }
