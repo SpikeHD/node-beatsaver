@@ -3,6 +3,8 @@
 # node-beatsaver
 A function-based API wrapper for https://beatsaver.com
 
+https://www.npmjs.com/package/beatsaver
+
 # Installation
 
 Run `npm install beatsaver` and `require` it in your project like so:
