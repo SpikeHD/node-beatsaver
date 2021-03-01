@@ -18,6 +18,13 @@ class Map extends Base {
 
     return this
   }
+
+  getDownloadLink(key = null) {
+    if (!key && !this.data.key) throw new Error('Key was not provided, or map data was not loaded.')
+    if (!key) key = this.data.key
+
+    return this.default_url + '/download/key/' + key
+  }
 }
 
 module.exports = Map

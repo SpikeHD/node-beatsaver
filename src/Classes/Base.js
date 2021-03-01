@@ -1,6 +1,6 @@
 const got = require('got')
 const { version } = require('../../package.json')
-const client = got.extend( {
+const client = got.extend({
   headers: {
     'User-Agent': 'Node-Beatsaver/' + version,
   }
